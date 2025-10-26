@@ -67,7 +67,14 @@ public class casaDomotica {
 
                     break;
                 case "6", "6.", "Quit", "QUIT", "quit", "6. Quit", "6. quit", "6. QUIT":
-                menuProgram = false;
+                    System.out.println("You chose to quit");
+                    System.out.println("Shutting down program...");
+                    System.out.println();
+                    System.out.println("Goodbye...");
+                    System.out.println();
+                    System.out.println("-------------------------------------");
+                    menuProgram = false;
+                    break;
                 
 
             default:
@@ -1413,8 +1420,4 @@ public class casaDomotica {
     public static void stateOfTD(){
         System.out.println("The temperature in the DinningRoom are: "  + tDinningRoom + "ºC" );
     }
-
 }
-
-
-
