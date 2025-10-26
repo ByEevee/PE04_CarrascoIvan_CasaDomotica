@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -12,8 +13,8 @@ public class casaDomotica {
     static boolean lR1 = false ,lR2 = false ,lR3 = false,lBath = false ,lKitchen = false,lDinningRoom = false;
     static boolean bR1 = false ,bR2 = false ,bR3 = false ,bBath= false ,bKitchen = false ,bDinningRoom = false;
     static boolean rR1 = false ,rR2 = false ,rR3 = false ,rBath= false ,rKitchen = false ,rDinningRoom = false;
-    static double tR1,tR2,tR3,tBath,tKitchen,tDinningRoom;
-    static boolean menuProgram = true, askForGoBackToMenu = false, lightsMenu = false, blindersMenu = false, roombaMenu = false;
+    static double tR1 = 25,tR2 = 25, tR3= 25,tBath = 25,tKitchen = 25,tDinningRoom = 25;
+    static boolean menuProgram = true, askForGoBackToMenu = false, lightsMenu = false, blindersMenu = false, roombaMenu = false ,tempMenu = false;
     public static void main(String[] args) {
         //declarar variables locals
         
@@ -62,6 +63,8 @@ public class casaDomotica {
                     break;
                 case "5", "5.", "check overall status", "overall status",  "5. overall status" :
                     System.out.println("You choosed to check the overall status");
+                    overallState();
+
                     break;
                 case "6", "6.", "Quit", "QUIT", "quit", "6. Quit", "6. quit", "6. QUIT":
                 menuProgram = false;
@@ -86,7 +89,7 @@ public class casaDomotica {
             System.out.println();
             System.out.println("Pick a choice down below:");
             System.out.println();
-            System.out.println("a. Choose room/s");
+            System.out.println("a. Choose room");
             System.out.println("b. All rooms");
             System.out.println("c. Back to menu");
             System.out.println();
@@ -123,9 +126,10 @@ public class casaDomotica {
                                     }
                                     else if (turnL.equalsIgnoreCase("off"))
                                     {
+                                        lR1 = false;
                                         System.out.println();
                                         stateOfR1();
-                                        lR1 = false;
+                                        
                                         askForGoBackMenu();
                                         lightsMenu = false;
                                     }
@@ -157,10 +161,11 @@ public class casaDomotica {
                                         
                                     }
                                     else if (turnL.equalsIgnoreCase("off"))
-                                    {
+                                    {   
+                                        lR2 = false;
                                         System.out.println();
                                         stateOfR2();
-                                        lR2 = false;
+                                        
                                         askForGoBackMenu();
                                         lightsMenu = false;
                                     }
@@ -192,9 +197,10 @@ public class casaDomotica {
                                     }
                                     else if (turnL.equalsIgnoreCase("off"))
                                     {
+                                        lR3 = false;
                                         System.out.println();
                                         stateOfR3();
-                                        lR3 = false;
+                                        
                                         askForGoBackMenu();
                                         lightsMenu = false;
                                     }
@@ -227,9 +233,10 @@ public class casaDomotica {
                                     }
                                     else if (turnL.equalsIgnoreCase("off"))
                                     {
+                                        lKitchen = false;
                                         System.out.println();
                                         stateOfK();
-                                        lKitchen = false;
+                                        
                                         askForGoBackMenu();
                                         lightsMenu = false;
                                     }
@@ -262,9 +269,10 @@ public class casaDomotica {
                                     }
                                     else if (turnL.equalsIgnoreCase("off"))
                                     {
+                                        lBath = false;
                                         System.out.println();
                                         stateOfB();
-                                        lBath = false;
+                                        
                                         askForGoBackMenu();
                                         lightsMenu = false;
                                     }
@@ -294,9 +302,10 @@ public class casaDomotica {
                                     }
                                     else if (turnL.equalsIgnoreCase("off"))
                                     {
+                                        lDinningRoom = false;
                                         System.out.println();
                                         stateOfD();
-                                        lDinningRoom = false;
+                                        
                                         askForGoBackMenu();
                                         lightsMenu = false;
                                     }
@@ -383,7 +392,7 @@ public class casaDomotica {
         System.out.println("----------------------------------");
         System.out.println("Pick a choice down below:");
         System.out.println();
-        System.out.println("a. Choose room/s");
+        System.out.println("a. Choose room");
         System.out.println("b. All rooms");
         System.out.println("c. Back to menu");
         System.out.println();
@@ -416,9 +425,10 @@ public class casaDomotica {
                                     }
                                     else if (turnB.equalsIgnoreCase("close"))
                                     {
+                                        bR1 = false;
                                         System.out.println();
                                         stateOfBR1();
-                                        bR1 = false;
+                                        
                                         askForGoBackMenu();
                                         blindersMenu = false;
                                     }
@@ -451,9 +461,10 @@ public class casaDomotica {
                                     }
                                     else if (turnB.equalsIgnoreCase("close"))
                                     {
+                                        bR2 = false;
                                         System.out.println();
                                         stateOfBR2();
-                                        bR2 = false;
+                                        
                                         askForGoBackMenu();
                                         blindersMenu = false;
                                     }
@@ -485,9 +496,10 @@ public class casaDomotica {
                                     }
                                     else if (turnB.equalsIgnoreCase("close"))
                                     {
+                                        bR3 = false;
                                         System.out.println();
                                         stateOfBR3();
-                                        bR3 = false;
+                                        
                                         askForGoBackMenu();
                                         blindersMenu = false;
                                     }
@@ -520,9 +532,10 @@ public class casaDomotica {
                                     }
                                     else if (turnB.equalsIgnoreCase("close"))
                                     {
+                                        bKitchen = false;
                                         System.out.println();
                                         stateOfBK();
-                                        bKitchen = false;
+                                        
                                         askForGoBackMenu();
                                         blindersMenu = false;
                                     }
@@ -555,9 +568,10 @@ public class casaDomotica {
                                     }
                                     else if (turnB.equalsIgnoreCase("close"))
                                     {
+                                        bBath = false;
                                         System.out.println();
                                         stateOfBB();
-                                        bBath = false;
+                                        
                                         askForGoBackMenu();
                                         blindersMenu = false;
                                     }
@@ -587,9 +601,10 @@ public class casaDomotica {
                                     }
                                     else if (turnB.equalsIgnoreCase("close"))
                                     {
+                                        bDinningRoom = false;
                                         System.out.println();
                                         stateOfBD();
-                                        bDinningRoom = false;
+                                        
                                         askForGoBackMenu();
                                         blindersMenu = false;
                                     }
@@ -673,7 +688,7 @@ public class casaDomotica {
         System.out.println("----------------------------------");
         System.out.println("Pick a choice down below:");
         System.out.println();
-        System.out.println("a. Choose room/s");
+        System.out.println("a. Choose room");
         System.out.println("b. All rooms");
         System.out.println("c. Back to menu");
         System.out.println();
@@ -706,9 +721,10 @@ public class casaDomotica {
                                     }
                                     else if (turnR.equalsIgnoreCase("no"))
                                     {
+                                        rR1 = false;
                                         System.out.println();
                                         stateOfRR1();
-                                        rR1 = false;
+                                        
                                         askForGoBackMenu();
                                         roombaMenu = false;
                                     }
@@ -741,9 +757,10 @@ public class casaDomotica {
                                     }
                                     else if (turnR.equalsIgnoreCase("no"))
                                     {
+                                        rR2 = false;
                                         System.out.println();
                                         stateOfRR2();
-                                        rR2 = false;
+                                        
                                         askForGoBackMenu();
                                         roombaMenu = false;
                                     }
@@ -775,9 +792,10 @@ public class casaDomotica {
                                     }
                                     else if (turnR.equalsIgnoreCase("no"))
                                     {
+                                        rR3 = false;
                                         System.out.println();
                                         stateOfRR3();
-                                        rR3 = false;
+                                        
                                         askForGoBackMenu();
                                         roombaMenu = false;
                                     }
@@ -810,9 +828,10 @@ public class casaDomotica {
                                     }
                                     else if (turnR.equalsIgnoreCase("no"))
                                     {
+                                        rKitchen = false;
                                         System.out.println();
                                         stateOfRK();
-                                        rKitchen = false;
+                                        
                                         askForGoBackMenu();
                                         roombaMenu = false;
                                     }
@@ -845,9 +864,10 @@ public class casaDomotica {
                                     }
                                     else if (turnR.equalsIgnoreCase("no"))
                                     {
+                                        rBath = false;
                                         System.out.println();
                                         stateOfRB();
-                                        rBath = false;
+                                        
                                         askForGoBackMenu();
                                         roombaMenu = false;
                                     }
@@ -877,9 +897,10 @@ public class casaDomotica {
                                     }
                                     else if (turnR.equalsIgnoreCase("no"))
                                     {
+                                        rDinningRoom = false;
                                         System.out.println();
                                         stateOfRD();
-                                        rDinningRoom = false;
+                                        
                                         askForGoBackMenu();
                                         roombaMenu = false;
                                     }
@@ -952,7 +973,7 @@ public class casaDomotica {
     }
     public static void temparatureMenu(){
         //Will be doing fully CLEANED or NOT CLEANED, in the final version will be automatic cleaning
-        roombaMenu=true;
+        tempMenu=true;
         System.out.println("");
         System.out.println("----------------------------------");
         System.out.println();
@@ -961,7 +982,7 @@ public class casaDomotica {
         System.out.println("----------------------------------");
         System.out.println("Pick a choice down below:");
         System.out.println();
-        System.out.println("a. Choose room/s");
+        System.out.println("a. Choose room");
         System.out.println("b. All rooms");
         System.out.println("c. Back to menu");
         System.out.println();
@@ -975,103 +996,221 @@ public class casaDomotica {
                         menuChoiceRoom();
                         switch (choice2) 
                         {
-                            case "r1":
-                                
-                                System.out.println("This is the state of your Cleaning:  room 1 = " + rR1 + "ºC");
-                                whatYouWantToDoWithRoomba();
-                                
-                                tR1 = sc.nextDouble();
-                                
-
-                                   
-
-                                break;
+                            
+                                case "r1":
+                                try 
+                                {
+                                    System.out.println("You chose the first room");
+                                    System.out.println("This is temperature:  room 1 = " + rR1 + "ºC");
+                                    whatYouWantToDoWithTemp();
+                                    
+                                    tR1 = sc.nextDouble();
+                                    if (tR1>35 || tR1<15) {
+                                        System.out.println("The temperature is too low or too high, please try again");
+                                        System.out.println("Temperature must be between 15 and 35");
+                                        System.out.println("Returning to TEMPERATURE MENU...");
+                                        break;
+                                    }
+                                    else {}
+                                    System.out.println();
+                                    System.out.println("You set the temperature of room 1 at: " +tR1 + "ºC");
+                                 
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Error, please enter a number");
+                                    break;
+                                } 
+                                catch (Exception e) {
+                                    System.out.println("Error, please enter a valid number");
+                                    break;
+                                }
+                            
                             
                             case "r2":
-                                System.out.println("You chose the second room");
-                                System.out.println("This is the state of your Cleaning:  room 2 = " + rR2 + "ºC");
-                                whatYouWantToDoWithRoomba();
-                                
-                                tR2 = sc.nextDouble();
-                               
-
+                                try 
+                                {
+                                    System.out.println("You chose the second room");
+                                    System.out.println("This is the temperature:  room 2 = " + tR2 + "ºC");
+                                    whatYouWantToDoWithTemp();
                                     
+                                    tR2 = sc.nextDouble();
+                                     if (tR2>35 || tR2<15) {
+                                        System.out.println("The temperature is too low or too high, please try again");
+                                        System.out.println("Temperature must be between 15 and 35");
+                                        System.out.println("Returning to TEMPERATURE MENU...");
+                                        break;
+                                    }
+                                    else {}
+                                    System.out.println("You set the temperature of room 2 at: " +tR2 + "ºC");
+                                }
+                                
+                                 
+                                 catch (InputMismatchException e) {
+                                    System.out.println("Error, please enter a number");
+                                    break;
+                                } 
+                                catch (Exception e) {
+                                    System.out.println("Error, please enter a valid number");
+                                    break;
+                                }
 
-                                break;
                             case "r3":
-                                System.out.println("You chose the third room");
-                                System.out.println("This is the state of your Cleaning:  room 3 = " + rR3 + "ºC");
-                                whatYouWantToDoWithRoomba();
-                                
-                                tR3 = sc.nextDouble();
-                                
+                            try
+                                {
+                                    System.out.println("You chose the third room");
+                                    System.out.println("This is the temperature:  room 3 = " + tR3 + "ºC");
+                                    whatYouWantToDoWithTemp();
+                                    
+                                    tR3 = sc.nextDouble();
+                                        if (tR3>35 || tR3<15) 
+                                        {
+                                            System.out.println("The temperature is too low or too high, please try again");
+                                            System.out.println("Temperature must be between 15 and 35");
+                                            System.out.println("Returning to TEMPERATURE MENU...");
+                                            break;
+                                        }
+                                        else {}
+                                        
+                                    
+                                        System.out.println("You set the temperature of room 3 at: " +tR3 + "ºC");
+                                }
+                                catch (InputMismatchException e) {
+                                    System.out.println("Error, please enter a number");
+                                    break;
+                                } 
+                                catch (Exception e) {
+                                    System.out.println("Error, please enter a valid number");
+                                    break;
+                                }
 
-                                  
-
-                                break;
+                                
                             
                             case "k":
-                                System.out.println("You chose the Kitchen");
-                                System.out.println("This is the state of your Cleaning:  kitchen = " + rKitchen + "ºC");
-                                whatYouWantToDoWithRoomba();
+                                try
+                                {
+                                    System.out.println("You chose the Kitchen");
+                                    System.out.println("This is the temperature:  kitchen = " + tKitchen + "ºC");
+                                    whatYouWantToDoWithTemp();
+                                    
+                                    tKitchen = sc.nextDouble();
+                                    if (tKitchen>35 || tKitchen<15) {
+                                            System.out.println("The temperature is too low or too high, please try again");
+                                            System.out.println("Temperature must be between 15 and 35");
+                                            System.out.println("Returning to TEMPERATURE MENU...");
+                                            break;
+                                        }
+                                        else {}
+                        
+                                    System.out.println("You set the temperature of the kitchen at: " +tKitchen + "ºC");
+                                }
                                 
-                                tKitchen = sc.nextDouble();
-                                
-                                   
-
-                                break;
+                                catch (InputMismatchException e) {
+                                    System.out.println("Error, please enter a number");
+                                    break;
+                                } 
+                                catch (Exception e) {
+                                    System.out.println("Error, please enter a valid number");
+                                    break;
+                                }
                                 
                             case "b":
+                            try{
                                 System.out.println("You chose the Bathroom");
-                                System.out.println("This is the state of your Cleaning:  bathroom = " + rBath + "ºC");
-                                whatYouWantToDoWithRoomba();
+                                System.out.println("This is the temperature:  bathroom = " + tBath + "ºC");
+                                whatYouWantToDoWithTemp();
                                 
                                 tBath = sc.nextDouble();
-                                
-
+                                if (tBath>35 || tBath<15) {
+                                            System.out.println("The temperature is too low or too high, please try again");
+                                            System.out.println("Temperature must be between 15 and 35");
+                                            System.out.println("Returning to TEMPERATURE MENU...");
+                                            break;
+                                        }
                                     
-                                break;
-
+                                }
+                                catch (InputMismatchException e) {
+                                    System.out.println("Error, please enter a number");
+                                    break;
+                                } 
+                                catch (Exception e) {
+                                    System.out.println("Error, please enter a valid number");
+                                    break;
+                                }
+                                    
+                               
+                                System.out.println("You set the temperature of the bathroom at: " +tBath + "ºC");
+                            
                             case "d":
+                            try
+                            {
                                 System.out.println("You chose the Dinning Room");
                                 System.out.println("This is the state of your Cleaning:  Dinning Room = " + rDinningRoom +"ºC" );
-                                whatYouWantToDoWithRoomba();
+                                whatYouWantToDoWithTemp();
                                 
                                 tDinningRoom = sc.nextDouble();
-                                
-                                    
-
+                                if (tDinningRoom>35 || tDinningRoom<15) {
+                                            System.out.println("The temperature is too low or too high, please try again");
+                                            System.out.println("Temperature must be between 15 and 35");
+                                            System.out.println("Returning to TEMPERATURE MENU...");
+                                            break;
+                                        }
+                                        else {}
+                                System.out.println("You set the temperature of the Dinning Room at: " +tDinningRoom + "ºC");
+                            }
+                            catch (InputMismatchException e) {
+                                    System.out.println("Error, please enter a number");
+                                    break;
+                            } 
+                            catch (Exception e) {
+                                System.out.println("Error, please enter a valid number");
                                 break;
+                            }   
+                                
+                                
                         
                         default:
                             errorOfTyping();
                             break;
-                    
-                    }
-
+                            }
+                
                     case "b", "b.", "b all rooms", "all rooms", "all", "all room", "b all", "b all room":
-                        System.out.println("You chose to control all rooms.");
-                        whatYouWantToDoWithRoomba();
+                        try 
+                        {
+                            System.out.println("You chose to control all rooms.");
+                        whatYouWantToDoWithTemp();
                         turnT = sc.nextDouble();
-                        
-
+                        if (turnT>35 || turnT<15) {
+                            System.out.println("The temperature is too low or too high, please try again");
+                            System.out.println("Temperature must be between 15 and 35");
+                            System.out.println("Returning to TEMPERATURE MENU...");
+                            break;
+                        }
+                        else {}
+               
                             tR1 = tR2 = tR3 = tKitchen = tBath = tDinningRoom = turnT;
                             System.out.println();
-                            System.out.println("The state of all rooms are: r1 = " + tR1 + "ºC, r2 = " + tR2 + "ºC, r3 = " + tR3 + "ºC, kitchen = " + tKitchen +"ºC, bath = " +tBath+"ºC, dinning room = " + tDinningRoom + "ºC");
-                            roombaMenu = false;
+                            System.out.println("All rooms have been set to: " + turnT+ "ºC");
+                            
+                            System.out.println();
+                            
                             askForGoBackMenu();
-                            roombaMenu =false;
+                            tempMenu =false;
+                            break;
+                        }
+                        catch (InputMismatchException e) {
+                                    System.out.println("Error, please enter a number");
+                                    break;
+                        } 
+                        catch (Exception e) {
+                            System.out.println("Error, please enter a valid number");
+                            break;
+                        } 
                                     
-                                    
-                                
-                                
-                                
-
-                        break;
+                  
+                        
 
                     case "c", "c.", "back", "back to menu", "return", "return to menu", "main menu", "go back":
                         System.out.println("Returning to main menu...");
-                        roombaMenu = false;
+                        tempMenu = false;
                         break;
 
                     default:
@@ -1094,6 +1233,55 @@ public class casaDomotica {
         System.out.println("Write the room you're choosing");
         choice2 = sc.nextLine();
 
+    }
+    static void overallState(){
+        System.out.println("----------------------------------");
+        System.out.println();
+        System.out.println("      OVERALL HOUSE STATE        :");
+        System.out.println();
+        System.out.println("----------------------------------");
+        System.out.println();
+        System.out.println("----------------------------------");
+        System.out.println("Light State:");
+        stateOfR1();
+        stateOfR2();
+        stateOfR3();
+        stateOfK();
+        stateOfB();
+        stateOfD();
+        System.out.println();
+        System.out.println("----------------------------------");
+        System.out.println("Blinders State:");
+        stateOfBR1();
+        stateOfBR2();
+        stateOfBR3();
+        stateOfBK();
+        stateOfBB();
+        stateOfBD();
+        System.out.println();
+        System.out.println("----------------------------------");
+        System.out.println("Cleaning State:");
+        stateOfRR1();
+        stateOfRR2();
+        stateOfRR3();
+        stateOfRK();
+        stateOfRB();
+        stateOfRD();
+        System.out.println();
+        System.out.println("----------------------------------");
+        System.out.println("Temperature State:");
+        System.out.println();
+        System.out.println("room 1 = " + tR1 + "ºC");
+        System.out.println("room 2 = " + tR2 + "ºC");
+        System.out.println("room 3 = " + tR3 + "ºC");
+        System.out.println("kitchen = " + tKitchen + "ºC");
+        System.out.println("bathroom = " + tBath + "ºC");
+        System.out.println("dinning room = " + tDinningRoom + "ºC");
+        System.out.println();
+        System.out.println("----------------------------------");
+        System.out.println();
+        askForGoBackMenu();
+        
     }
     public static void askForGoBackMenu(){
         askForGoBackToMenu = true;
@@ -1145,6 +1333,10 @@ public class casaDomotica {
         System.out.println("would you like to clean that room? ");
         System.out.println("CLEAN IT  = CLEAN | NOT CLEAN IT  = NO");
     }
+    public static void whatYouWantToDoWithTemp(){
+        System.out.println("Wich temp you want to set? (ºC) ");
+        
+    }
     public static void stateOfR1(){
     
         System.out.println("The lights of the room 1 are: "  + (lR1 ? "ON" : "OFF"));
@@ -1166,41 +1358,41 @@ public class casaDomotica {
     }
     public static void stateOfRR1(){
     
-        System.out.println("The cleaning state of the room 1 are: "  + (rR1 ? "CLEANED" : "NOT CLEANED"));
+        System.out.println("The cleaning state of the room 1 is: "  + (rR1 ? "CLEANED" : "NOT CLEANED"));
     }
     public static void stateOfRR2(){
-        System.out.println("The cleaning state of the room 2 are: "  + (rR2 ? "CLEANED" : "NOT CLEANED"));
+        System.out.println("The cleaning state of the room 2 is: "  + (rR2 ? "CLEANED" : "NOT CLEANED"));
     }
     public static void stateOfRR3(){
-        System.out.println("The cleaning state of the room 3 are: "  + (rR3 ? "CLEANED" : "NOT CLEANED"));
+        System.out.println("The cleaning state of the room 3 is: "  + (rR3 ? "CLEANED" : "NOT CLEANED"));
     }
     public static void stateOfRK(){
-        System.out.println("The cleaning state of the Kitchen are: "  + (rKitchen ? "CLEANED" : "NOT CLEANED"));
+        System.out.println("The cleaning state of the Kitchen is: "  + (rKitchen ? "CLEANED" : "NOT CLEANED"));
     }
     public static void stateOfRB(){
-        System.out.println("The cleaning state of the bathroom are: "  + (rBath ? "CLEANED" : "NOT CLEANED"));
+        System.out.println("The cleaning state of the bathroom is: "  + (rBath ? "CLEANED" : "NOT CLEANED"));
     }
     public static void stateOfRD(){
-        System.out.println("The cleaning state of the bathroom are: "  + (rBath ? "CLEANED" : "NOT CLEANED"));
+        System.out.println("The cleaning state of the bathroom is: "  + (rBath ? "CLEANED" : "NOT CLEANED"));
     }
     public static void stateOfBR1(){
     
-        System.out.println("The blinders of the room 1 are: "  + (bR1 ? "ON" : "OFF"));
+        System.out.println("The blinders of the room 1 are: "  + (bR1 ? "OPEN" : "CLOSED"));
     }
     public static void stateOfBR2(){
-        System.out.println("The blinders of the room 2 are: "  + (bR2 ? "ON" : "OFF"));
+        System.out.println("The blinders of the room 2 are: "  + (bR2 ? "OPEN" : "CLOSED"));
     }
     public static void stateOfBR3(){
-        System.out.println("The blinders of the room 3 are: "  + (bR3 ? "ON" : "OFF"));
+        System.out.println("The blinders of the room 3 are: "  + (bR3 ? "OPEN" : "CLOSED"));
     }
     public static void stateOfBK(){
-        System.out.println("The blinders of the Kitchen are: "  + (bKitchen ? "ON" : "OFF"));
+        System.out.println("The blinders of the Kitchen are: "  + (bKitchen ? "OPEN" : "CLOSED"));
     }
     public static void stateOfBB(){
-        System.out.println("The blinders of the bathroom are: "  + (bBath ? "ON" : "OFF"));
+        System.out.println("The blinders of the bathroom are: "  + (bBath ? "OPEN" : "CLOSED"));
     }
     public static void stateOfBD(){
-        System.out.println("The blinders of the DinningRoom are: "  + (bDinningRoom ? "ON" : "OFF"));
+        System.out.println("The blinders of the DinningRoom are: "  + (bDinningRoom ? "OPEN" : "CLOSED"));
     }
     public static void stateOfTR1(){
     
