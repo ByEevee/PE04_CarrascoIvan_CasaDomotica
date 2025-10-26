@@ -6,7 +6,8 @@ public class casaDomotica {
     
     static String goBackMenu;
     static String choice, choice2;
-    static String turnL,turnB, turnR, turnT;
+    static String turnL,turnB, turnR;
+    static double turnT;
     static Scanner sc = new Scanner(System.in);
     static boolean lR1 = false ,lR2 = false ,lR3 = false,lBath = false ,lKitchen = false,lDinningRoom = false;
     static boolean bR1 = false ,bR2 = false ,bR3 = false ,bBath= false ,bKitchen = false ,bDinningRoom = false;
@@ -322,7 +323,12 @@ public class casaDomotica {
                                 if (turnL.equalsIgnoreCase("on")) {
                                     lR1 = lR2 = lR3 = lKitchen = lBath = lDinningRoom = true;
                                     System.out.println();
-                                    System.out.println("The state of all rooms are: r1 = " + lR1 + " r2 = " + lR2 + " r3 = " + lR3 + " kitchen = " + lKitchen +" bath = " +lBath+" dinning room = " + lDinningRoom);
+                                    stateOfR1();
+                                    stateOfR2();
+                                    stateOfR3();
+                                    stateOfK();
+                                    stateOfB();
+                                    stateOfD();
                                     lightsMenu = false;
                                     askForGoBackMenu();
                                     lightsMenu =false;
@@ -334,7 +340,12 @@ public class casaDomotica {
                                     System.out.println();
                                     
                                     lR1 = lR2 = lR3 = lKitchen = lBath = lDinningRoom = false;
-                                    System.out.println("The state of all rooms are: r1 = " + lR1 + " r2 = " + lR2 + " r3 = " + lR3 + " kitchen = " + lKitchen +" bath = " +lBath+" dinning room = " + lDinningRoom);
+                                    stateOfR1();
+                                    stateOfR2();
+                                    stateOfR3();
+                                    stateOfK();
+                                    stateOfB();
+                                    stateOfD();
                                     askForGoBackMenu();
                                     lightsMenu = false;
                                 }
@@ -605,7 +616,12 @@ public class casaDomotica {
                                     bR1 = bR2 = bR3 = bKitchen = bBath = bDinningRoom = true;
                                     
                                     System.out.println();
-                                    System.out.println("The state of all rooms are: r1 = " + bR1 + " r2 = " + bR2 + " r3 = " + bR3 + " kitchen = " + bKitchen +" bath = " +bBath+" dinning room = " + bDinningRoom);
+                                    stateOfBR1();
+                                    stateOfBR2();
+                                    stateOfBR3();
+                                    stateOfBK();
+                                    stateOfBB();
+                                    stateOfBD();
                                     blindersMenu = false;
                                     askForGoBackMenu();
                                     blindersMenu =false;
@@ -616,7 +632,12 @@ public class casaDomotica {
                                 {
                                     bR1 = bR2 = bR3 = bKitchen = bBath = bDinningRoom = false;
                                     System.out.println();
-                                    System.out.println("The state of all rooms are: r1 = " + bR1 + " r2 = " + bR2 + " r3 = " + bR3 + " kitchen = " + bKitchen +" bath = " +bBath+" dinning room = " + bDinningRoom);
+                                    stateOfBR1();
+                                    stateOfBR2();
+                                    stateOfBR3();
+                                    stateOfBK();
+                                    stateOfBB();
+                                    stateOfBD();
                                     
                                     askForGoBackMenu();
                                     blindersMenu = false;
@@ -884,7 +905,12 @@ public class casaDomotica {
                                 if (turnR.equalsIgnoreCase("clean")) {
                                     rR1 = rR2 = rR3 = rKitchen = rBath = rDinningRoom = true;
                                     System.out.println();
-                                    System.out.println("The state of all rooms are: r1 = " + rR1 + " r2 = " + rR2 + " r3 = " + rR3 + " kitchen = " + rKitchen +" bath = " +rBath+" dinning room = " + rDinningRoom);
+                                    stateOfRR1();
+                                    stateOfRR2();
+                                    stateOfRR3();
+                                    stateOfRK();
+                                    stateOfRB();
+                                    stateOfRD();
                                     roombaMenu = false;
                                     askForGoBackMenu();
                                     roombaMenu =false;
@@ -894,8 +920,13 @@ public class casaDomotica {
                                 else if (turnR.equalsIgnoreCase("no"))
                                 {
                                     System.out.println();
+                                    
+                                    stateOfRR1();
+                                    stateOfRR2();
+                                    stateOfRR3();
+                                    stateOfRK();
+                                    stateOfRB();
                                     stateOfRD();
-                                    System.out.println("The state of all rooms are: r1 = " + rR1 + " r2 = " + rR2 + " r3 = " + rR3 + " kitchen = " + rKitchen +" bath = " +rBath+" dinning room = " + rDinningRoom);
                                     askForGoBackMenu();
                                     roombaMenu = false;
                                 }
@@ -946,204 +977,69 @@ public class casaDomotica {
                         {
                             case "r1":
                                 
-                                System.out.println("This is the state of your Cleaning:  room 1 = " + (rR1 ? "CLEANED" : "NOT CLEANED"));
+                                System.out.println("This is the state of your Cleaning:  room 1 = " + rR1 + "ºC");
                                 whatYouWantToDoWithRoomba();
                                 
-                                turnT = sc.nextLine();
-                                turnT = turnT.trim();
+                                tR1 = sc.nextDouble();
+                                
 
-                                    if (turnT.equalsIgnoreCase("clean")) {
-                                        rR1 = true;
-                                        System.out.println();
-                                        stateOfRR1();
-                                        askForGoBackMenu();
-                                        roombaMenu =false;
-                                       
-                                        
-                                    }
-                                    else if (turnT.equalsIgnoreCase("no"))
-                                    {
-                                        System.out.println();
-                                        stateOfRR1();
-                                        rR1 = false;
-                                        askForGoBackMenu();
-                                        roombaMenu = false;
-                                    }
-                                    else
-                                    {
-                                        errorOfTyping();
-                                    }
+                                   
 
                                 break;
                             
                             case "r2":
                                 System.out.println("You chose the second room");
-                                System.out.println("This is the state of your Cleaning:  room 2 = " + (rR2 ? "CLEANED" : "NOT CLEANED"));
+                                System.out.println("This is the state of your Cleaning:  room 2 = " + rR2 + "ºC");
                                 whatYouWantToDoWithRoomba();
                                 
-                                turnT = sc.nextLine();
-                                turnT = turnT.trim();
+                                tR2 = sc.nextDouble();
+                               
 
-                                    if (turnT.equalsIgnoreCase("clean")) {
-                                        rR2 = true;
-                                        System.out.println();
-                                        stateOfRR2();
-                                        askForGoBackMenu();
-                                        roombaMenu =false;
-                                        
-                                        
-
-                                        
-                                        
-                                    }
-                                    else if (turnT.equalsIgnoreCase("no"))
-                                    {
-                                        System.out.println();
-                                        stateOfRR2();
-                                        rR2 = false;
-                                        askForGoBackMenu();
-                                        roombaMenu = false;
-                                    }
-                                    else
-                                    {
-                                        errorOfTyping();
-                                    }
+                                    
 
                                 break;
                             case "r3":
                                 System.out.println("You chose the third room");
-                                System.out.println("This is the state of your Cleaning:  room 3 = " + (rR3 ? "CLEANED" : "NOT CLEANED"));
+                                System.out.println("This is the state of your Cleaning:  room 3 = " + rR3 + "ºC");
                                 whatYouWantToDoWithRoomba();
                                 
-                                turnT = sc.nextLine();
-                                turnT = turnT.trim();
+                                tR3 = sc.nextDouble();
+                                
 
-                                    if (turnT.equalsIgnoreCase("clean")) {
-                                        rR3 = true;
-                                        System.out.println();
-                                        stateOfRR3();
-                                        askForGoBackMenu();
-                                        roombaMenu =false;
-                                        
-                                        
-
-                                        
-                                        
-                                    }
-                                    else if (turnT.equalsIgnoreCase("no"))
-                                    {
-                                        System.out.println();
-                                        stateOfRR3();
-                                        rR3 = false;
-                                        askForGoBackMenu();
-                                        roombaMenu = false;
-                                    }
-                                    else
-                                    {
-                                        errorOfTyping();
-                                    }
+                                  
 
                                 break;
                             
                             case "k":
                                 System.out.println("You chose the Kitchen");
-                                System.out.println("This is the state of your Cleaning:  kitchen = " + (rKitchen ? "CLEANED" : "NOT CLEANED"));
+                                System.out.println("This is the state of your Cleaning:  kitchen = " + rKitchen + "ºC");
                                 whatYouWantToDoWithRoomba();
                                 
-                                turnT = sc.nextLine();
-                                turnT = turnT.trim();
-
-                                    if (turnT.equalsIgnoreCase("clean")) {
-                                        rKitchen = true;
-                                        System.out.println();
-                                        stateOfRK();
-                                        askForGoBackMenu();
-                                        roombaMenu =false;
-                                        
-                                        
-
-                                        
-                                        
-                                    }
-                                    else if (turnT.equalsIgnoreCase("no"))
-                                    {
-                                        System.out.println();
-                                        stateOfRK();
-                                        rKitchen = false;
-                                        askForGoBackMenu();
-                                        roombaMenu = false;
-                                    }
-                                    else
-                                    {
-                                        errorOfTyping();
-                                    }
+                                tKitchen = sc.nextDouble();
+                                
+                                   
 
                                 break;
                                 
                             case "b":
                                 System.out.println("You chose the Bathroom");
-                                System.out.println("This is the state of your Cleaning:  bathroom = " + (rBath ? "CLEANED" : "NOT CLEANED"));
+                                System.out.println("This is the state of your Cleaning:  bathroom = " + rBath + "ºC");
                                 whatYouWantToDoWithRoomba();
                                 
-                                turnT = sc.nextLine();
-                                turnT = turnT.trim();
+                                tBath = sc.nextDouble();
+                                
 
-                                    if (turnT.equalsIgnoreCase("clean")) {
-                                        rBath = true;
-                                        System.out.println();
-                                        stateOfRB();
-                                        askForGoBackMenu();
-                                        roombaMenu =false;
-                                        
-                                        
-
-                                        
-                                        
-                                    }
-                                    else if (turnT.equalsIgnoreCase("no"))
-                                    {
-                                        System.out.println();
-                                        stateOfRB();
-                                        rBath = false;
-                                        askForGoBackMenu();
-                                        roombaMenu = false;
-                                    }
-                                    else
-                                    {
-                                        errorOfTyping();
-                                    }
-
+                                    
                                 break;
 
                             case "d":
                                 System.out.println("You chose the Dinning Room");
-                                System.out.println("This is the state of your Cleaning:  Dinning Room = " + (rDinningRoom ? "CLEANED" : "NOT CLEANED"));
+                                System.out.println("This is the state of your Cleaning:  Dinning Room = " + rDinningRoom +"ºC" );
                                 whatYouWantToDoWithRoomba();
                                 
-                                turnT = sc.nextLine();
-                                turnT = turnT.trim();
-
-                                    if (turnT.equalsIgnoreCase("clean")) {
-                                        rDinningRoom = true;
-                                        System.out.println();
-                                        stateOfRD();
-                                        askForGoBackMenu();
-                                        roombaMenu =false;
-                                        
-                                        
-                                    }
-                                    else if (turnT.equalsIgnoreCase("no"))
-                                    {
-                                        System.out.println();
-                                        stateOfRD();
-                                        rDinningRoom = false;
-                                        askForGoBackMenu();
-                                        roombaMenu = false;
-                                    }
-                                    else
-                                    {
-                                        errorOfTyping();
-                                    }
+                                tDinningRoom = sc.nextDouble();
+                                
+                                    
 
                                 break;
                         
@@ -1156,31 +1052,20 @@ public class casaDomotica {
                     case "b", "b.", "b all rooms", "all rooms", "all", "all room", "b all", "b all room":
                         System.out.println("You chose to control all rooms.");
                         whatYouWantToDoWithRoomba();
-                        turnT = sc.nextLine();
-                        turnT = turnT.trim();
+                        turnT = sc.nextDouble();
+                        
 
-                                if (turnT.equalsIgnoreCase("clean")) {
-                                    rR1 = rR2 = rR3 = rKitchen = rBath = rDinningRoom = true;
-                                    System.out.println();
-                                    System.out.println("The state of all rooms are: r1 = " + rR1 + " r2 = " + rR2 + " r3 = " + rR3 + " kitchen = " + rKitchen +" bath = " +rBath+" dinning room = " + rDinningRoom);
-                                    roombaMenu = false;
-                                    askForGoBackMenu();
-                                    roombaMenu =false;
+                            tR1 = tR2 = tR3 = tKitchen = tBath = tDinningRoom = turnT;
+                            System.out.println();
+                            System.out.println("The state of all rooms are: r1 = " + tR1 + "ºC, r2 = " + tR2 + "ºC, r3 = " + tR3 + "ºC, kitchen = " + tKitchen +"ºC, bath = " +tBath+"ºC, dinning room = " + tDinningRoom + "ºC");
+                            roombaMenu = false;
+                            askForGoBackMenu();
+                            roombaMenu =false;
                                     
                                     
-                                }
-                                else if (turnT.equalsIgnoreCase("no"))
-                                {
-                                    System.out.println();
-                                    stateOfRD();
-                                    System.out.println("The state of all rooms are: r1 = " + rR1 + " r2 = " + rR2 + " r3 = " + rR3 + " kitchen = " + rKitchen +" bath = " +rBath+" dinning room = " + rDinningRoom);
-                                    askForGoBackMenu();
-                                    roombaMenu = false;
-                                }
-                                else
-                                {
-                                    errorOfTyping();
-                                }
+                                
+                                
+                                
 
                         break;
 
@@ -1316,6 +1201,25 @@ public class casaDomotica {
     }
     public static void stateOfBD(){
         System.out.println("The blinders of the DinningRoom are: "  + (bDinningRoom ? "ON" : "OFF"));
+    }
+    public static void stateOfTR1(){
+    
+        System.out.println("The temperature in the room 1 are: "  + tR1 + "ºC");
+    }
+    public static void stateOfTR2(){
+        System.out.println("The temperature in the room 2 are: "  + tR2 + "ºC");
+    }
+    public static void stateOfTR3(){
+        System.out.println("The temperature in the room 3 are: "  + tR3 + "ºC");
+    }
+    public static void stateOfTK(){
+        System.out.println("The temperature in the Kitchen are: "  + tKitchen + "ºC");
+    }
+    public static void stateOfTB(){
+        System.out.println("The temperature in the bathroom are: "  + tBath + "ºC");
+    }
+    public static void stateOfTD(){
+        System.out.println("The temperature in the DinningRoom are: "  + tDinningRoom + "ºC" );
     }
 
 }
