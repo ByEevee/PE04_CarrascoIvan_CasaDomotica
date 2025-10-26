@@ -35,6 +35,7 @@ public class casaDomotica {
             System.out.println();
             System.out.println("ENTER THE OPTION");
             selection = sc.nextLine();
+            selection = selection.trim().toLowerCase();
 
             switch (selection) 
             {
@@ -44,6 +45,7 @@ public class casaDomotica {
 
                 case "6", "6.", "Quit", "QUIT", "quit", "6. Quit", "6. quit", "6. QUIT":
                 menuProgram = false;
+                
 
             default:
                 errorOfTyping();
@@ -74,11 +76,12 @@ public class casaDomotica {
                 switch (choice) 
                 {
                     
-                    case "a. choose room/s","a. choose room", "a", "a.", "choose room/s", "choose room", "room","room/s", "a choose room/s", "a choose room" :
+                    case "a. choose room", "a", "a.", "choose room", "room", "a choose room" :
                         menuChoiceRoom();
-                        switch (choice2) {
+                        switch (choice2) 
+                        {
                             case "r1":
-                                System.out.println("You chose the first room");
+                                
                                 System.out.println("This is the state of your lights:  room 1 = " + (lR1 ? "ON" : "OFF"));
                                 whatYouWantToDoWithLights();
                                 
@@ -88,8 +91,7 @@ public class casaDomotica {
                                     if (turnL.equalsIgnoreCase("on")) {
                                         lR1 = true;
                                         System.out.println();
-                                        System.out.println("The lights of the room 1 are: "  + (lR1 ? "ON" : "OFF"));
-                                        lightsMenu = false;
+                                        stateOfR1();
                                         askForGoBackMenu();
                                         lightsMenu =false;
                                         
@@ -101,8 +103,9 @@ public class casaDomotica {
                                     else if (turnL.equalsIgnoreCase("off"))
                                     {
                                         System.out.println();
-                                        System.out.println("The lights of the room 1 are: "  + (lR1 ? "ON" : "OFF"));
+                                        stateOfR1();
                                         lR1 = false;
+                                        askForGoBackMenu();
                                         lightsMenu = false;
                                     }
                                     else
@@ -123,8 +126,7 @@ public class casaDomotica {
                                     if (turnL.equalsIgnoreCase("on")) {
                                         lR2 = true;
                                         System.out.println();
-                                        System.out.println("The lights of the room 2 are: "  + (lR2 ? "ON" : "OFF"));
-                                        lightsMenu = false;
+                                        stateOfR2();
                                         askForGoBackMenu();
                                         lightsMenu =false;
                                         
@@ -136,8 +138,9 @@ public class casaDomotica {
                                     else if (turnL.equalsIgnoreCase("off"))
                                     {
                                         System.out.println();
-                                        System.out.println("The lights of the room 2 are: "  + (lR2 ? "ON" : "OFF"));
+                                        stateOfR2();
                                         lR2 = false;
+                                        askForGoBackMenu();
                                         lightsMenu = false;
                                     }
                                     else
@@ -157,8 +160,7 @@ public class casaDomotica {
                                     if (turnL.equalsIgnoreCase("on")) {
                                         lR3 = true;
                                         System.out.println();
-                                        System.out.println("The lights of the room 3 are: "  + (lR3 ? "ON" : "OFF"));
-                                        lightsMenu = false;
+                                        stateOfR3();
                                         askForGoBackMenu();
                                         lightsMenu =false;
                                         
@@ -170,8 +172,9 @@ public class casaDomotica {
                                     else if (turnL.equalsIgnoreCase("off"))
                                     {
                                         System.out.println();
-                                        System.out.println("The lights of the room 3 are: "  + (lR3 ? "ON" : "OFF"));
+                                        stateOfR3();
                                         lR3 = false;
+                                        askForGoBackMenu();
                                         lightsMenu = false;
                                     }
                                     else
@@ -182,7 +185,7 @@ public class casaDomotica {
                                 break;
                             
                             case "k":
-                                System.out.println("You chose the kitchen");
+                                System.out.println("You chose the Kitchen");
                                 System.out.println("This is the state of your lights:  kitchen = " + (lKitchen ? "ON" : "OFF"));
                                 whatYouWantToDoWithLights();
                                 
@@ -192,8 +195,7 @@ public class casaDomotica {
                                     if (turnL.equalsIgnoreCase("on")) {
                                         lKitchen = true;
                                         System.out.println();
-                                        System.out.println("The lights of the kitchen are: "  + (lKitchen ? "ON" : "OFF"));
-                                        lightsMenu = false;
+                                        stateOfK();
                                         askForGoBackMenu();
                                         lightsMenu =false;
                                         
@@ -205,8 +207,9 @@ public class casaDomotica {
                                     else if (turnL.equalsIgnoreCase("off"))
                                     {
                                         System.out.println();
-                                        System.out.println("The lights of the kitchen are: "  + (lKitchen ? "ON" : "OFF"));
-                                        lBath = false;
+                                        stateOfK();
+                                        lKitchen = false;
+                                        askForGoBackMenu();
                                         lightsMenu = false;
                                     }
                                     else
@@ -217,7 +220,7 @@ public class casaDomotica {
                                 break;
                                 
                             case "b":
-                                System.out.println("You chose the bathroom");
+                                System.out.println("You chose the Bathroom");
                                 System.out.println("This is the state of your lights:  bathroom = " + (lBath ? "ON" : "OFF"));
                                 whatYouWantToDoWithLights();
                                 
@@ -227,8 +230,7 @@ public class casaDomotica {
                                     if (turnL.equalsIgnoreCase("on")) {
                                         lBath = true;
                                         System.out.println();
-                                        System.out.println("The lights of the bathroom are: "  + (lBath ? "ON" : "OFF"));
-                                        lightsMenu = false;
+                                        stateOfB();
                                         askForGoBackMenu();
                                         lightsMenu =false;
                                         
@@ -240,8 +242,9 @@ public class casaDomotica {
                                     else if (turnL.equalsIgnoreCase("off"))
                                     {
                                         System.out.println();
-                                        System.out.println("The lights of the bathroom are: "  + (lBath ? "ON" : "OFF"));
+                                        stateOfB();
                                         lBath = false;
+                                        askForGoBackMenu();
                                         lightsMenu = false;
                                     }
                                     else
@@ -251,100 +254,102 @@ public class casaDomotica {
 
                                 break;
 
-                            case "r1,r2":
-                                System.out.println("You chose the first room");
-                                System.out.println("This is the state of your lights: r1 = " + (lR1 ? "ON" : "OFF") +" r2 = " + ( lR2 ? "ON" : "OFF"));
+                            case "d":
+                                System.out.println("You chose the Dinning Room");
+                                System.out.println("This is the state of your lights:  Dinning Room = " + (lDinningRoom ? "ON" : "OFF"));
                                 whatYouWantToDoWithLights();
+                                
                                 turnL = sc.nextLine();
                                 turnL = turnL.trim();
 
                                     if (turnL.equalsIgnoreCase("on")) {
-                                        lR1 = true;
+                                        lDinningRoom = true;
                                         System.out.println();
-                                        System.out.println("The lights of the room 1 are: "  + (lR1 ? "ON" : "OFF"));
-                                        System.out.println("The lights of the room 2 are: "  + (lR2 ? "ON" : "OFF"));
-                                        lightsMenu = false;
+                                        stateOfD();
                                         askForGoBackMenu();
                                         lightsMenu =false;
-                                        
-                                        
-
                                         
                                         
                                     }
                                     else if (turnL.equalsIgnoreCase("off"))
                                     {
                                         System.out.println();
-                                        System.out.println("The lights of the room 1 are: "  + (lR1 ? "ON" : "OFF"));
-                                        System.out.println("The lights of the room 2 are: "  + (lR2 ? "ON" : "OFF"));
-                                        lR1 = false;
-                                        lightsMenu = false;
-                                    }
-                                    else
-                                    
-                                    {
-                                        errorOfTyping();
-                                    }
-
-                            break;
-                        case "r1,r3":
-                                System.out.println("You chose the first room");
-                                System.out.println("This is the state of your lights: r3 = " + (lR1 ? "ON" : "OFF") +" r2 = " + ( lR3 ? "ON" : "OFF"));
-                                whatYouWantToDoWithLights();
-                                turnL = sc.nextLine();
-                                turnL = turnL.trim();
-
-                                    if (turnL.equalsIgnoreCase("on")) {
-                                        lR1 = true;
-                                        System.out.println();
-                                        System.out.println("The lights of the room 1 are: "  + (lR1 ? "ON" : "OFF"));
-                                        System.out.println("The lights of the room 2 are: "  + (lR2 ? "ON" : "OFF"));
-                                        lightsMenu = false;
+                                        stateOfD();
+                                        lDinningRoom = false;
                                         askForGoBackMenu();
-                                        lightsMenu =false;
-                                        
-                                        
-
-                                        
-                                        
-                                    }
-                                    else if (turnL.equalsIgnoreCase("off"))
-                                    {
-                                        System.out.println();
-                                        System.out.println("The lights of the room 1 are: "  + (lR1 ? "ON" : "OFF"));
-                                        System.out.println("The lights of the room 2 are: "  + (lR2 ? "ON" : "OFF"));
-                                        lR1 = false;
                                         lightsMenu = false;
                                     }
                                     else
-                                    
                                     {
                                         errorOfTyping();
                                     }
 
-                            break;
+                                break;
+                        
                         default:
                             errorOfTyping();
                             break;
-                        }
+                        
+                    }
+                    break;
+                    
+                    case "b", "b.", "b all rooms", "all rooms", "all", "all room", "b all", "b all room":
+                        System.out.println("You chose to control all rooms.");
+                        whatYouWantToDoWithLights();
+                        turnL = sc.nextLine();
+                        turnL = turnL.trim();
+
+                                if (turnL.equalsIgnoreCase("on")) {
+                                    lR1 = lR2 = lR3 = lKitchen = lBath = lDinningRoom = true;
+                                    System.out.println();
+                                    stateOfD();
+                                    lightsMenu = false;
+                                    askForGoBackMenu();
+                                    lightsMenu =false;
+                                    
+                                    
+                                }
+                                else if (turnL.equalsIgnoreCase("off"))
+                                {
+                                    System.out.println();
+                                    stateOfD();
+                                    lR1 = lR2 = lR3 = lKitchen = lBath = lDinningRoom = false;
+                                    askForGoBackMenu();
+                                    lightsMenu = false;
+                                }
+                                else
+                                {
+                                    errorOfTyping();
+                                }
+
+                            break;
+
+                    
+                    case "c", "c.", "back", "back to menu", "return", "return to menu", "main menu", "go back":
+                        System.out.println("Returning to main menu...");
+                        lightsMenu = false;
                         break;
-                
                     default:
                         errorOfTyping();
                         break;
                 }
         } while (lightsMenu);
         
-    
+        
 
 
     }
-    public static void blindersAndWindowsMenu(){
-
+    public static void blindersMenu(){
+        System.out.println("");
+        System.out.println("----------------------------------");
+        System.out.println();
+        System.out.println("          BLINDERS MENU           ");
+        System.out.println();
+        System.out.println("----------------------------------");
     }
     public static void menuChoiceRoom(){
         System.out.println();
-        System.out.println("Please select the rooms you want:");
+        System.out.println("Please select the room you want:");
         System.out.println();
         System.out.println("r1 for first room");
         System.out.println("r2 for second room");
@@ -353,7 +358,7 @@ public class casaDomotica {
         System.out.println("b for bathroom");
         System.out.println("d for dinningroom");
         System.out.println();
-        System.out.println("write your rooms following this format and in order (r1,r3,k,b,d...) or if it's just one (r1)");
+        System.out.println("Write the room you're choosing");
         choice2 = sc.nextLine();
 
     }
@@ -364,14 +369,14 @@ public class casaDomotica {
             System.out.println("You want to go back to menu or quit program? (Yes // No):");
             goBackMenu = sc.nextLine();
             goBackMenu = goBackMenu.trim(); // Esborra el menu 
-                if (goBackMenu.equals("yes")) {
+                if (goBackMenu.equalsIgnoreCase("yes")) {
                     System.out.println("Going back to menu....");
                     System.out.println();
                     askForGoBackToMenu = false;
                     
                     
                 }
-                else if (goBackMenu.equals("no")) {
+                else if (goBackMenu.equalsIgnoreCase("no")) {
                     System.out.println("Shutting down program...");
                     System.out.println();
                     System.out.println("Goodbye...");
@@ -399,6 +404,26 @@ public class casaDomotica {
         System.out.println("What would you like to do? ");
         System.out.println("Turn it on = ON | Turn it off = OFF");
     }
+    public static void stateOfR1(){
+    
+        System.out.println("The lights of the room 1 are: "  + (lR1 ? "ON" : "OFF"));
+    }
+    public static void stateOfR2(){
+        System.out.println("The lights of the room 2 are: "  + (lR2 ? "ON" : "OFF"));
+    }
+    public static void stateOfR3(){
+        System.out.println("The lights of the room 3 are: "  + (lR3 ? "ON" : "OFF"));
+    }
+    public static void stateOfK(){
+        System.out.println("The lights of the Kitchen are: "  + (lKitchen ? "ON" : "OFF"));
+    }
+    public static void stateOfB(){
+        System.out.println("The lights of the bathroom are: "  + (lBath ? "ON" : "OFF"));
+    }
+    public static void stateOfD(){
+        System.out.println("The lights of the DinningRoom are: "  + (lDinningRoom ? "ON" : "OFF"));
+    }
+
 }
 
 
