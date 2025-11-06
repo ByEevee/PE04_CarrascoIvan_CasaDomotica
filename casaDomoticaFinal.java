@@ -6,7 +6,6 @@ public class casaDomoticaFinal {
 
     
     static String goBackMenu;
-<<<<<<< HEAD
     static int hour;
     static int selectedHour = -1;
     static int selectedHour2 = -1;
@@ -15,8 +14,6 @@ public class casaDomoticaFinal {
     static double autoTemp = -1;
     static double autoTemp2 = -1;
     static boolean validTemp = false, validTemp2 = false;
-=======
->>>>>>> 5327b2cc4931558880649b4f7c87df3d93996a71
     static String choice, choice2, automatic;
     static String turnL,turnB, turnR;
     static double turnT;
@@ -115,7 +112,6 @@ public class casaDomoticaFinal {
             choice = sc.nextLine();
             choice = choice.trim().toLowerCase();
 
-<<<<<<< HEAD
             switch (choice) 
             {
                 case "a. choose room", "a", "a.", "choose room", "room", "a choose room" :
@@ -348,258 +344,6 @@ public class casaDomoticaFinal {
                     break;
             }
         } while (lightsMenu);
-=======
-                switch (choice) 
-                {
-                    case "a. choose room", "a", "a.", "choose room", "room", "a choose room" :
-                        menuChoiceRoom();
-                        String[] rooms = choice2.split(",");
-
-                        for (String room : rooms) {
-                            room = room.trim();
-                       
-                        switch (room) 
-                        {
-                            case "r1":
-                                System.out.println("----------------------------------");
-                                System.out.println("This is the state of your lights:  room 1 = " + (lR1 ? "ON" : "OFF"));
-                                whatYouWantToDoWithLights();
-                                
-                                turnL = sc.nextLine();
-                                turnL = turnL.trim();
-
-                                    if (turnL.equalsIgnoreCase("on")) {
-                                        lR1 = true;
-                                        System.out.println();
-                                        stateOfR1();
-                                        
-                                    }
-                                    else if (turnL.equalsIgnoreCase("off"))
-                                    {
-                                        lR1 = false;
-                                        System.out.println();
-                                        stateOfR1();
-                                        
-                                    }
-                                    else
-                                    {
-                                        errorOfTyping();
-                                    }
-
-                                break;
-                            
-                            case "r2":
-                                System.out.println("----------------------------------");
-                                System.out.println("You chose the second room");
-                                System.out.println("This is the state of your lights:  room 2 = " + (lR2 ? "ON" : "OFF"));
-                                whatYouWantToDoWithLights();
-                                
-                                turnL = sc.nextLine();
-                                turnL = turnL.trim();
-
-                                    if (turnL.equalsIgnoreCase("on")) {
-                                        lR2 = true;
-                                        System.out.println();
-                                        stateOfR2();
-                                        
-                                    }
-                                    else if (turnL.equalsIgnoreCase("off"))
-                                    {   
-                                        lR2 = false;
-                                        System.out.println();
-                                        stateOfR2();
-                                        
-                                    }
-                                    else
-                                    {
-                                        errorOfTyping();
-                                    }
-
-                                break;
-                            case "r3":
-                                System.out.println("----------------------------------");
-                                System.out.println("You chose the third room");
-                                System.out.println("This is the state of your lights:  room 3 = " + (lR3 ? "ON" : "OFF"));
-                                whatYouWantToDoWithLights();
-                                
-                                turnL = sc.nextLine();
-                                turnL = turnL.trim();
-
-                                    if (turnL.equalsIgnoreCase("on")) {
-                                        lR3 = true;
-                                        System.out.println();
-                                        stateOfR3();
-                                        
-                                    }
-                                    else if (turnL.equalsIgnoreCase("off"))
-                                    {
-                                        lR3 = false;
-                                        System.out.println();
-                                        stateOfR3();
-                                        
-                                    }
-                                    else
-                                    {
-                                        errorOfTyping();
-                                    }
-
-                                break;
-                            
-                            case "k":
-                                System.out.println("----------------------------------");
-                                System.out.println("You chose the Kitchen");
-                                System.out.println("This is the state of your lights:  kitchen = " + (lKitchen ? "ON" : "OFF"));
-                                whatYouWantToDoWithLights();
-                                
-                                turnL = sc.nextLine();
-                                turnL = turnL.trim();
-
-                                    if (turnL.equalsIgnoreCase("on")) {
-                                        lKitchen = true;
-                                        System.out.println();
-                                        stateOfK();
-                                        
-                                    }
-                                    else if (turnL.equalsIgnoreCase("off"))
-                                    {
-                                        lKitchen = false;
-                                        System.out.println();
-                                        stateOfK();
-                                        
-                                    }
-                                    else
-                                    {
-                                        errorOfTyping();
-                                    }
-
-                                break;
-                                
-                            case "b":
-                                System.out.println("----------------------------------");
-                                System.out.println("You chose the Bathroom");
-                                System.out.println("This is the state of your lights:  bathroom = " + (lBath ? "ON" : "OFF"));
-                                whatYouWantToDoWithLights();
-                                
-                                turnL = sc.nextLine();
-                                turnL = turnL.trim();
-
-                                    if (turnL.equalsIgnoreCase("on")) {
-                                        lBath = true;
-                                        System.out.println();
-                                        stateOfB();
-                                        
-                                    }
-                                    else if (turnL.equalsIgnoreCase("off"))
-                                    {
-                                        lBath = false;
-                                        System.out.println();
-                                        stateOfB();
-                                        
-                                    }
-                                    else
-                                    {
-                                        errorOfTyping();
-                                    }
-
-                                break;
-
-                            case "d":
-                                System.out.println("----------------------------------");
-                                System.out.println("You chose the Dinning Room");
-                                System.out.println("This is the state of your lights:  Dinning Room = " + (lDinningRoom ? "ON" : "OFF"));
-                                whatYouWantToDoWithLights();
-                                
-                                turnL = sc.nextLine();
-                                turnL = turnL.trim();
-
-                                    if (turnL.equalsIgnoreCase("on")) {
-                                        lDinningRoom = true;
-                                        System.out.println();
-                                        stateOfD();
-                                        
-                                    }
-                                    else if (turnL.equalsIgnoreCase("off"))
-                                    {
-                                        lDinningRoom = false;
-                                        System.out.println();
-                                        stateOfD();
-                                        
-                                    }
-                                    else
-                                    {
-                                        errorOfTyping();
-                                    }
-
-                                break;
-                        
-                        default:
-                            errorOfTyping();
-                            break;
-                        
-                    }
-                        }
-                        // End of the loop ask for go back menu
-                        askForGoBackMenu();
-                        lightsMenu = false;
-                    break;
-                    
-                    case "b", "b.", "b all rooms", "all rooms", "all", "all room", "b all", "b all room":
-                        System.out.println("You chose to control all rooms.");
-                        whatYouWantToDoWithLights();
-                        turnL = sc.nextLine();
-                        turnL = turnL.trim();
-
-                                if (turnL.equalsIgnoreCase("on")) {
-                                    lR1 = lR2 = lR3 = lKitchen = lBath = lDinningRoom = true;
-                                    System.out.println();
-                                    stateOfR1();
-                                    stateOfR2();
-                                    stateOfR3();
-                                    stateOfK();
-                                    stateOfB();
-                                    stateOfD();
-                                    lightsMenu = false;
-                                    askForGoBackMenu();
-                                    lightsMenu =false;
-                                    
-                                    
-                                }
-                                else if (turnL.equalsIgnoreCase("off"))
-                                {
-                                    System.out.println();
-                                    
-                                    lR1 = lR2 = lR3 = lKitchen = lBath = lDinningRoom = false;
-                                    stateOfR1();
-                                    stateOfR2();
-                                    stateOfR3();
-                                    stateOfK();
-                                    stateOfB();
-                                    stateOfD();
-                                    askForGoBackMenu();
-                                    lightsMenu = false;
-                                }
-                                else
-                                {
-                                    errorOfTyping();
-                                }
-
-                            break;
-
-                    
-                    case "c", "c.", "back", "back to menu", "return", "return to menu", "main menu", "go back":
-                        System.out.println("Returning to main menu...");
-                        lightsMenu = false;
-                        break;
-                    default:
-                        errorOfTyping();
-                        break;
-                }
-        } while (lightsMenu);
-        
-        
-
-
->>>>>>> 5327b2cc4931558880649b4f7c87df3d93996a71
     }
     public static void blindersMenu(){
         //Will be doing fully Closed or fully opened, in the final version will be different types of closed/opened blinds
@@ -625,17 +369,8 @@ public class casaDomoticaFinal {
                     
                     case "a. choose room", "a", "a.", "choose room", "room", "a choose room" :
                         menuChoiceRoom();
-<<<<<<< HEAD
                        
                         switch (choice2) 
-=======
-                        String[] rooms = choice2.split(",");
-
-                        for (String room : rooms) {
-                            room = room.trim();
-                       
-                        switch (room) 
->>>>>>> 5327b2cc4931558880649b4f7c87df3d93996a71
                         {
                             case "r1":
                                 System.out.println("----------------------------------");
@@ -814,11 +549,7 @@ public class casaDomoticaFinal {
                             errorOfTyping();
                             break;
                     
-<<<<<<< HEAD
                     
-=======
-                    }
->>>>>>> 5327b2cc4931558880649b4f7c87df3d93996a71
                         }
                         askForGoBackMenu();
                         blindersMenu = false;
@@ -879,10 +610,7 @@ public class casaDomoticaFinal {
                 }
         } while (blindersMenu);
     }
-<<<<<<< HEAD
     
-=======
->>>>>>> 5327b2cc4931558880649b4f7c87df3d93996a71
     public static void roombaMenu(){
         //Will be doing fully CLEANED or NOT CLEANED, in the final version will be automatic cleaning
         roombaMenu=true;
@@ -907,17 +635,8 @@ public class casaDomoticaFinal {
                     
                     case "a. choose room", "a", "a.", "choose room", "room", "a choose room" :
                         menuChoiceRoom();
-<<<<<<< HEAD
                        
                         switch (choice2) 
-=======
-                        String[] rooms = choice2.split(",");
-
-                        for (String room : rooms) {
-                            room = room.trim();
-                       
-                        switch (room) 
->>>>>>> 5327b2cc4931558880649b4f7c87df3d93996a71
                         {
                             case "r1":
                                 System.out.println("----------------------------------");    
@@ -1096,11 +815,7 @@ public class casaDomoticaFinal {
                             errorOfTyping();
                             break;
                     
-<<<<<<< HEAD
                     
-=======
-                    }
->>>>>>> 5327b2cc4931558880649b4f7c87df3d93996a71
                         }
                         askForGoBackMenu();
                         roombaMenu = false;
@@ -1420,7 +1135,6 @@ public class casaDomoticaFinal {
 
                             case "c", "c.", "back", "back to menu", "return", "return to menu", "main menu", "go back":
                                 System.out.println("Returning to main menu...");
-<<<<<<< HEAD
                                 
                                 
                                 break;
@@ -1572,15 +1286,12 @@ public class casaDomoticaFinal {
 
                             case "c", "c.", "back", "back to menu", "return", "return to menu", "main menu", "go back":
                                 System.out.println("Returning to main menu...");
-=======
->>>>>>> 5327b2cc4931558880649b4f7c87df3d93996a71
                                 tempMenu = false;
                                 break;
 
                             default:
                                 errorOfTyping();
                                 break;
-<<<<<<< HEAD
                                 
                             
                     }
@@ -1611,115 +1322,6 @@ public class casaDomoticaFinal {
     
         
     
-=======
-                            
-                        }
-            case "2", "2.", "set automatic temperature in specific hours", "set automatic temperature", "automatic temperature", "automatic", "automatic temp":
-                System.out.println();
-                System.out.println("You chose to set automatic temperature in specific hours:");
-                System.out.println();
-                
-                // Ask user for hour
-                int selectedHour = -1;
-                boolean validHour = false;
-                while (!validHour) {
-                    try {
-                        System.out.println("Enter the hour (0-23) at which you want to set the temperature:");
-                        selectedHour = sc.nextInt();
-                        sc.nextLine(); 
-                        if (selectedHour >= 0 && selectedHour <= 23) {
-                            validHour = true;
-                        } else {
-                            System.out.println("Invalid hour! Please enter a value between 0 and 23.");
-                        }
-                    } catch (InputMismatchException e) {
-                        System.out.println("Error, please enter a valid number.");
-                        sc.nextLine(); // Clear invalid input
-                    }
-                }
-                
-                // Ask user to select rooms
-                System.out.println("----------------------------------");
-                menuChoiceRoom();
-                String[] roomsSelected = choice2.split(",");
-                
-                
-                double autoTemp = -1;
-                boolean validTemp = false;
-                while (!validTemp) {
-                    try {
-                        System.out.println("Enter the temperature you want to set (15-35 ºC):");
-                        autoTemp = sc.nextDouble();
-                        sc.nextLine(); 
-                        if (autoTemp >= 15 && autoTemp <= 35) {
-                            validTemp = true;
-                        } else {
-                            System.out.println("Temperature must be between 15 and 35. Please try again.");
-                        }
-                    } catch (InputMismatchException e) {
-                        System.out.println("Error, please enter a valid number.");
-                        sc.nextLine(); // Clear invalid input
-                    }
-                }
-                
-                // Loop through hours from 0 to 24
-                for (int hour = 0; hour <= 24; hour++) {
-                    System.out.println("Time--> " + hour + ":00");
-                    if (hour == selectedHour) {
-                        System.out.println();
-                        System.out.println("----------------------------------");
-                        System.out.println("AUTOMATIC TEMPERATURE ACTIVATED AT HOUR " + selectedHour + ":00");
-                        System.out.println("----------------------------------");
-                        System.out.println();
-                        
-                        // Apply temperature to selected rooms
-                        for (String room : roomsSelected) {
-                            room = room.trim().toLowerCase();
-                            switch (room) {
-                                case "r1":
-                                    tR1 = autoTemp;
-                                    System.out.println("Room 1 temperature set to: " + autoTemp + " ºC");
-                                    break;
-                                case "r2":
-                                    tR2 = autoTemp;
-                                    System.out.println("Room 2 temperature set to: " + autoTemp + " ºC");
-                                    break;
-                                case "r3":
-                                    tR3 = autoTemp;
-                                    System.out.println("Room 3 temperature set to: " + autoTemp + " ºC");
-                                    break;
-                                case "k":
-                                    tKitchen = autoTemp;
-                                    System.out.println("Kitchen temperature set to: " + autoTemp + " ºC");
-                                    break;
-                                case "b":
-                                    tBath = autoTemp;
-                                    System.out.println("Bathroom temperature set to: " + autoTemp + " ºC");
-                                    break;
-                                case "d":
-                                    tDinningRoom = autoTemp;
-                                    System.out.println("Dinning Room temperature set to: " + autoTemp + " ºC");
-                                    break;
-                            }
-                        }
-                        System.out.println();
-                        break; // Exit the loop after applying temperature
-                    }
-                }
-                
-                System.out.println("Automatic temperature schedule has been set.");
-                System.out.println("Returning to TEMPERATURE MENU...");
-                System.out.println();
-                break;
-                
-            default:
-                errorOfTyping();
-                break;
-        }
-        } while (tempMenu);
-        
-    }
->>>>>>> 5327b2cc4931558880649b4f7c87df3d93996a71
     public static void menuChoiceRoom(){
         System.out.println();
         System.out.println("Please select the room you want:");
@@ -1735,7 +1337,6 @@ public class casaDomoticaFinal {
         choice2 = sc.nextLine();
 
     }
-<<<<<<< HEAD
     public static void choseAutoTemp(){
         while (!validHour) {
             try {
@@ -1796,9 +1397,6 @@ public class casaDomoticaFinal {
                                 
     }
     public static void overallState(){
-=======
-    static void overallState(){
->>>>>>> 5327b2cc4931558880649b4f7c87df3d93996a71
         System.out.println("----------------------------------");
         System.out.println();
         System.out.println("      OVERALL HOUSE STATE        :");
